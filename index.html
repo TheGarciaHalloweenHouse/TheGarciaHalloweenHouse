@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>The Garcia Halloween House</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="tbd">
+
+    <meta property="og:title" content="The Garcia Halloween House">
+    <meta property="og:description" content="tbd">
+    <meta property="og:image" content="media/clown.jpeg">
+    <meta property="og:type" content="website">
+
+    <style media="screen">
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+
+      .video-container {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        height: 100dvh;
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .play-overlay {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: rgba(0, 0, 0, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .play-overlay.hidden {
+        display: none;
+      }
+
+      .play-overlay svg {
+        width: 25vw;
+        height: 25vw;
+        max-width: 120px;
+        max-height: 120px;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="video-container">
+      <video
+        id="feature-video"
+        src="media/vid1.mp4"
+        playsinline
+        controls
+      ></video>
+      <button class="play-overlay" id="play-overlay" aria-label="Play video">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="48" fill="rgba(255,255,255,0.9)"/>
+          <path d="M40 30 L72 50 L40 70 Z" fill="#111"/>
+        </svg>
+      </button>
+    </div>
+
+    <script>
+      const video = document.getElementById('feature-video');
+      const overlay = document.getElementById('play-overlay');
+
+      overlay.addEventListener('click', () => {
+        video.play();
+      });
+
+      video.addEventListener('play', () => {
+        overlay.classList.add('hidden');
+      });
+
+      video.addEventListener('pause', () => {
+        if (!video.ended) {
+          overlay.classList.remove('hidden');
+        }
+      });
+    </script>
+
+  </body>
+</html>
