@@ -60,29 +60,6 @@
         max-width: 120px;
         max-height: 120px;
       }
-
-      .hunt-button {
-        position: fixed;
-        left: 50%;
-        bottom: calc(72px + env(safe-area-inset-bottom));
-        transform: translateX(-50%);
-        z-index: 10;
-        max-width: calc(100% - 32px);
-        padding: 14px 28px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.92);
-        color: #111;
-        font: 600 clamp(16px, 4vw, 20px) / 1.2 system-ui, sans-serif;
-        text-align: center;
-        text-decoration: none;
-        white-space: nowrap;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-      }
-
-      .hunt-button:hover,
-      .hunt-button:focus-visible {
-        background: #fff;
-      }
     </style>
 
   </head>
@@ -91,7 +68,7 @@
     <div class="video-container">
       <video
         id="feature-video"
-        src="media/vid2.mp4"
+        src="media/vid1.mp4"
         playsinline
         controls
       ></video>
@@ -102,8 +79,6 @@
         </svg>
       </button>
     </div>
-
-    <a class="hunt-button" href="hunt.html">Start Scavenger Hunt</a>
 
     <script>
       const video = document.getElementById('feature-video');
